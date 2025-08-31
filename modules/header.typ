@@ -1,7 +1,7 @@
 #import "utils.typ": *
 
 #let render-socials(
-  socials: ()
+  socials: (),
 ) = {
   let columns = ()
   for item in socials {
@@ -9,7 +9,7 @@
       [
         #item.icon
         #link(item.link, item.text)
-      ]
+      ],
     )
   }
 
@@ -20,27 +20,27 @@
   styles: (),
   full-name: [],
   job-title: [],
-  socials: ()
+  socials: (),
 ) = {
   text(
     font: styles.header-style.fonts,
-    size: styles.header-style.full-name.size, 
+    size: styles.header-style.full-name.size,
     weight: styles.header-style.full-name.weight,
-    full-name
+    full-name,
   )
   linebreak()
   h-line()
   linebreak()
   text(
-    font: styles.header-style.fonts, 
-    size: styles.header-style.job-title.size, 
+    font: styles.header-style.fonts,
+    size: styles.header-style.job-title.size,
     weight: styles.header-style.job-title.weight,
-    job-title
+    job-title,
   )
   v(styles.header-style.margins.between-info-and-socials)
 
   let count-of-socials = socials.len()
-  if(count-of-socials > 1) {
+  if (count-of-socials > 1) {
     table(
       columns: count-of-socials,
       inset: 0pt,
@@ -48,7 +48,7 @@
       align: center,
       stroke: none,
       ..render-socials(
-        socials: socials
+        socials: socials,
       )
     )
   }
@@ -56,20 +56,21 @@
 
 #let create-header-image(
   styles: (),
-  profile-photo: ""
+  profile-photo: "",
 ) = {
   if profile-photo != none {
     set image(
-      height: styles.header-style.profile-photo.image-height, 
-      fit: "contain"
+      height: styles.header-style.profile-photo.image-height,
+      fit: "contain",
     )
     block(
-      width: styles.header-style.profile-photo.width, 
-      height: styles.header-style.profile-photo.height, 
-      stroke: styles.header-style.profile-photo.stroke, 
-      radius: styles.header-style.profile-photo.radius, 
+      width: styles.header-style.profile-photo.width,
+      height: styles.header-style.profile-photo.height,
+      stroke: styles.header-style.profile-photo.stroke,
+      radius: styles.header-style.profile-photo.radius,
       clip: true,
-      profile-photo
+      profile-photo,
     )
   }
 }
+

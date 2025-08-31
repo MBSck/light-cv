@@ -3,16 +3,17 @@
 
 #let render-skills(
   styles: (),
-  skills: ()
+  skills: (),
 ) = {
   for skill in skills {
     box(
       rect(
         stroke: styles.skills-style.stroke,
-        radius: styles.skills-style.radius, 
-        skill
-      )
+        radius: styles.skills-style.radius,
+        skill,
+      ),
     )
     h(styles.skills-style.margins.between-skill-tags)
   }
 }
+

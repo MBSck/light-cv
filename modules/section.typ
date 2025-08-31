@@ -3,14 +3,15 @@
 
 #let create-section-title(
   styles: (),
-  title: ""
+  title: "",
 ) = {
   text(
-    size: styles.section-style.title.size, 
-    weight: styles.section-style.title.weight, 
+    size: styles.section-style.title.size,
+    weight: styles.section-style.title.weight,
     fill: styles.section-style.title.font-color,
-    title
+    title,
   )
   h(styles.section-style.margins.right-to-hline)
   h-line()
 }
+

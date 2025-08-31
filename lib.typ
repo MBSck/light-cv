@@ -8,7 +8,7 @@
 
 #let cv(
   styles: (),
-  content
+  content,
 ) = {
   set text(
     font: styles.body-style.fonts,
@@ -16,12 +16,12 @@
     size: styles.body-style.size,
   )
   set list(
-    indent: styles.list-style.indent
+    indent: styles.list-style.indent,
   )
   set align(left)
   set page(
     paper: styles.page-style.paper,
-    margin: styles.page-style.margin
+    margin: styles.page-style.margin,
   )
   content
 }
@@ -32,7 +32,7 @@
   job-title: [],
   // Each array item must have a property link, text and icon to be displayed.
   socials: (),
-  profile-picture: ""
+  profile-picture: "",
 ) = {
   table(
     columns: styles.header-style.table.columns,
@@ -45,13 +45,13 @@
         styles: styles,
         full-name: full-name,
         job-title: job-title,
-        socials: socials
+        socials: socials,
       )
     },
     {
       create-header-image(
         styles: styles,
-        profile-photo: profile-picture
+        profile-photo: profile-picture,
       )
     }
   )
@@ -60,23 +60,23 @@
 
 #let section(
   styles: (),
-  title: ""
+  title: "",
 ) = {
   v(styles.section-style.margins.top)
   create-section-title(
     styles: styles,
-    title: title
+    title: title,
   )
 }
 
 #let entry(
   styles: (),
-  title: "", 
-  company-or-university: "", 
-  date: "", 
-  location: "", 
-  logo: "", 
-  description: ()
+  title: "",
+  company-or-university: "",
+  date: "",
+  location: "",
+  logo: "",
+  description: (),
 ) = {
   v(styles.entry-style.margins.top)
   table(
@@ -85,9 +85,9 @@
     stroke: none,
     align: horizon,
     column-gutter: styles.entry-style.margins.between-logo-and-title,
-    {logo},
+    { logo },
     table(
-      columns: (1fr),
+      columns: 1fr,
       inset: 0pt,
       stroke: none,
       row-gutter: styles.entry-style.margins.between-title-and-subtitle,
@@ -97,13 +97,13 @@
           size: styles.entry-style.title.size,
           weight: styles.entry-style.title.weight,
           fill: styles.entry-style.title.color,
-          title
+          title,
         )
         text(
-          size: styles.entry-style.company-or-university.size, 
-          weight: styles.entry-style.company-or-university.weight, 
-          fill: styles.entry-style.company-or-university.color, 
-          " @" + company-or-university
+          size: styles.entry-style.company-or-university.size,
+          weight: styles.entry-style.company-or-university.weight,
+          fill: styles.entry-style.company-or-university.color,
+          " @" + company-or-university,
         )
       },
       {
@@ -113,34 +113,39 @@
           stroke: none,
           align: horizon,
           column-gutter: styles.entry-style.margins.between-time-and-location,
-          {table(
-            columns: 2,
-            inset: 0pt,
-            stroke: none,
-            align: horizon,
-            column-gutter: styles.entry-style.margins.between-icon-and-text,
-            {if date.len() > 0{fa-hourglass-2()}},
-            {text(
-              size: styles.entry-style.time-and-location.size, 
-              weight: styles.entry-style.time-and-location.weight, 
-              fill: styles.entry-style.time-and-location.color, 
-              date
-            )},
-          )},
-          {table(
-            columns: 2,
-            inset: 0pt,
-            stroke: none,
-            align: horizon,
-            column-gutter: styles.entry-style.margins.between-icon-and-text,
-            {if location.len() > 0{fa-location-dot()}},
-            {text(size: 10pt, location)}
-          )},
+          {
+            table(
+              columns: 2,
+              inset: 0pt,
+              stroke: none,
+              align: horizon,
+              column-gutter: styles.entry-style.margins.between-icon-and-text,
+              { if date.len() > 0 { fa-hourglass-2() } },
+              {
+                text(
+                  size: styles.entry-style.time-and-location.size,
+                  weight: styles.entry-style.time-and-location.weight,
+                  fill: styles.entry-style.time-and-location.color,
+                  date,
+                )
+              },
+            )
+          },
+          {
+            table(
+              columns: 2,
+              inset: 0pt,
+              stroke: none,
+              align: horizon,
+              column-gutter: styles.entry-style.margins.between-icon-and-text,
+              { if location.len() > 0 { fa-location-dot() } }, { text(size: 10pt, location) },
+            )
+          },
         )
       },
     )
   )
-  
+
   text()[
     #v(3pt)
     #description
@@ -150,7 +155,7 @@
 #let skill(
   styles: (),
   category: "",
-  skills: ()
+  skills: (),
 ) = {
   table(
     columns: styles.skills-style.columns,
@@ -158,11 +163,11 @@
     column-gutter: 0pt,
     stroke: none,
     align: (horizon, left),
-    {text(category)},
+    { text(category) },
     {
       render-skills(
         styles: styles,
-        skills: skills
+        skills: skills,
       )
     }
   )
