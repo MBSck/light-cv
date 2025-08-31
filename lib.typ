@@ -103,7 +103,7 @@
           size: styles.entry-style.company-or-university.size,
           weight: styles.entry-style.company-or-university.weight,
           fill: styles.entry-style.company-or-university.color,
-          " @" + company-or-university,
+          { if company-or-university.len() > 0 { " @" } } + company-or-university,
         )
       },
       {
