@@ -146,10 +146,14 @@
     )
   )
 
-  text()[
-    #v(3pt)
-    #description
-  ]
+  {
+    if description.len() > 0 {
+      text()[
+        #v(3pt)
+        #list(..description.map(item => [#item]))
+      ]
+    }
+  }
 }
 
 #let skill(
