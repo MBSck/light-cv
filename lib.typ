@@ -55,7 +55,7 @@
       )
     }
   )
-  v(styles.header-style.margins.bottom)
+  // v(styles.header-style.margins.bottom)
 }
 
 #let section(
@@ -78,7 +78,7 @@
   logo: "",
   description: (),
 ) = {
-  v(styles.entry-style.margins.top)
+  // v(styles.entry-style.margins.top)
   table(
     columns: { if logo.len() > 0 { styles.entry-style.table.columns } else { auto } },
     inset: 0pt,
@@ -149,7 +149,7 @@
   {
     if description.len() > 0 {
       text()[
-        #v(3pt)
+        #v(2pt)
         #list(..description.map(item => [#item]))
       ]
     }
